@@ -42,6 +42,7 @@ def listcoins(message):
 @respond_to('balance',re.IGNORECASE)
 def listbalance(message):
     #List balances available in account
+    balance = polo('returnAvailableAccountBalances')
     message.reply("Your balance is:")
     for balances in balance['exchange']:
         coin = balances
