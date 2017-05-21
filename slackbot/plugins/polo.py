@@ -35,6 +35,12 @@ for balances in balance['exchange']:
 @respond_to('coins',re.IGNORECASE)
 def listcoins(message):
     #List coins available in account
+    coins = []
+    balance = polo('returnAvailableAccountBalances')
+    for balances in balance['exchange']:
+        coin = balances
+        amount = balance['exchange'][balances]
+        coins.append(coin)
     message.reply("You have the following cryptocurrencies:")
     for item in coins:
         message.reply(item)
